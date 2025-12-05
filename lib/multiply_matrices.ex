@@ -49,6 +49,7 @@ defmodule MultiplyMatrices do
 
   def read_rows(0, _), do: nil
 
+  # TODO: ensure num of items in the row is exactly the number of columns
   def read_rows(count, columns) do
     row =
       IO.gets("-> ") |> handle_row(columns)
