@@ -29,10 +29,10 @@ defmodule MultiplyMatrices do
 
   def read_dimensions_num(dimension) do
     IO.gets("Digite o numero de #{dimension}: ")
-    |> validate()
+    |> to_int()
   end
 
-  def validate(input) when is_binary(input) do
+  def to_int(input) when is_binary(input) do
     case Integer.parse(input) do
       {output, _} ->
         output
@@ -43,13 +43,12 @@ defmodule MultiplyMatrices do
     end
   end
 
-  def validate(input) when is_list(input) do
-    Enum.map(input, fn x -> validate(x) end)
+  def to_int(input) when is_list(input) do
+    Enum.map(input, fn x -> to_int(x) end)
   end
 
   def read_rows(0, _), do: nil
 
-  # TODO: ensure num of items in the row is exactly the number of columns
   def read_rows(count, columns) do
     row =
       IO.gets("-> ") |> handle_row(columns)
@@ -61,8 +60,18 @@ defmodule MultiplyMatrices do
     row
     |> String.replace("\n", "")
     |> String.split()
-    |> validate()
+    |> to_int()
     |> Enum.split(columns)
     |> elem(0)
+    |> validate_length(columns)
+  end
+
+  def validate_length(list, columns) do
+    if length(list) != columns do
+      IO.puts("O numero de itens da linha deve ser igual a: #{columns}")
+      System.halt(0)
+    end
+
+    list
   end
 end
