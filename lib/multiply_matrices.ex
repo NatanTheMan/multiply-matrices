@@ -17,9 +17,11 @@ defmodule MultiplyMatrices do
   def read_matrix_a() do
     IO.puts("Matriz A:")
     read_dimensions_num("Colunas")
-    rows = read_dimensions_num("Linhas")
+    rows_count = read_dimensions_num("Linhas")
 
-    read_row(rows)
+    IO.puts("\nAgora Digite os numeros de cada linha, separados por espaco (ex: \"-> 1 2 3\")")
+
+    read_row(rows_count)
     |> IO.inspect()
   end
 
