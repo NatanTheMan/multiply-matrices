@@ -19,7 +19,9 @@ defmodule MultiplyMatrices do
     columns = read_dimensions_num("Colunas")
     rows_count = read_dimensions_num("Linhas")
 
-    IO.puts("\nAgora Digite os numeros de cada linha, separados por espaco (ex: \"-> 1 2 3\")")
+    IO.puts(
+      "\nAgora Digite os numeros de cada linha, separados por espaco, e de Enter (ex: \"-> 1 2 3\\n\")"
+    )
 
     read_rows(rows_count, columns)
     |> IO.inspect()
