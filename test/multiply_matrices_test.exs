@@ -6,4 +6,9 @@ defmodule MultiplyMatricesTest do
     list = ["1", "2", "3"]
     assert MultiplyMatrices.validate(list) == [1, 2, 3]
   end
+
+  test "return a list with exact items length of columns num" do
+    input = "1 2 3 4 5 6 7\n"
+    assert MultiplyMatrices.handle_row(input, 4) == [1, 2, 3, 4]
+  end
 end

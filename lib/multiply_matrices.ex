@@ -16,12 +16,12 @@ defmodule MultiplyMatrices do
 
   def read_matrix_a() do
     IO.puts("Matriz A:")
-    read_dimensions_num("Colunas")
+    columns = read_dimensions_num("Colunas")
     rows_count = read_dimensions_num("Linhas")
 
     IO.puts("\nAgora Digite os numeros de cada linha, separados por espaco (ex: \"-> 1 2 3\")")
 
-    read_row(rows_count)
+    read_rows(rows_count, columns)
     |> IO.inspect()
   end
 
@@ -45,15 +45,21 @@ defmodule MultiplyMatrices do
     Enum.map(input, fn x -> validate(x) end)
   end
 
-  def read_row(0), do: nil
+  def read_rows(0, _), do: nil
 
-  def read_row(count) do
+  def read_rows(count, columns) do
     row =
-      IO.gets("-> ")
-      |> String.replace("\n", "")
-      |> String.split()
-      |> validate()
+      IO.gets("-> ") |> handle_row(columns)
 
-    [row | read_row(count - 1)]
+    [row | read_rows(count - 1, columns)]
+  end
+
+  def handle_row(row, columns) do
+    row
+    |> String.replace("\n", "")
+    |> String.split()
+    |> validate()
+    |> Enum.split(columns)
+    |> elem(0)
   end
 end
