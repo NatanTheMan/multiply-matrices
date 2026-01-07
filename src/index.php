@@ -10,15 +10,15 @@ function main(): void
 {
     try {
         echo "Type two matrices(A & B) to multiply them", PHP_EOL;
-        printMatrix(multiplyMatrices(readMatrix(), readMatrix()));
+        printMatrix(multiplyMatrices(readMatrix("A"), readMatrix("B")));
     } catch (Error $e) {
         echo $e->getMessage(), PHP_EOL;
     }
 }
 
-function readMatrix(): Matrix
+function readMatrix(string $placeHolder): Matrix
 {
-    echo "Type matrix A:", PHP_EOL;
+    echo "Type matrix $placeHolder:", PHP_EOL;
     echo "Type the number of columns: ";
     $column = validate(readline());
     echo "Type the number of rows: ";
