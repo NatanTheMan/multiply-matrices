@@ -11,5 +11,7 @@
             "email": "natanscosta7@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "markbaker/matrix": "^3.0"
+    }
 }
