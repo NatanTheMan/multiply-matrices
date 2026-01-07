@@ -1,17 +1,20 @@
 {
-    "name": "natan/multiply-matrices",
-    "autoload": {
-        "psr-4": {
-            "Natan\\MultiplyMatrices\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Natan Costa",
-            "email": "natanscosta7@gmail.com"
-        }
-    ],
-    "require": {
-        "markbaker/matrix": "^3.0"
+  "name": "natan/multiply-matrices",
+  "autoload": {
+    "psr-4": {
+      "MultiplyMatrices\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Natan Costa",
+      "email": "natanscosta7@gmail.com"
+    }
+  ],
+  "require": {
+    "markbaker/matrix": "^3.0"
+  },
+  "scripts": {
+    "run": "php src/index.php"
+  }
 }
