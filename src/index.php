@@ -21,10 +21,10 @@ function readMatrix(): Matrix
     $column = validate(readline());
     echo "Type the number of rows: ";
     $row =  validate(readline());
+
     $grid = [];
     for ($i = 1; $i <= $row; $i++) {
-        echo "Type the $i th line", PHP_EOL;
-        $line = array_slice(explode(" ", readline()), $column);
+        $line = validateArray(array_slice(explode(" ", readline("Type line $i: ")), 0, $column));
         array_push($grid, $line);
     }
     return new Matrix($grid);
@@ -47,4 +47,16 @@ function validate(string $input): int
     } else {
         throw new Error("Invalid input: type just numbers");
     }
+}
+
+function validateArray(array $arr): array
+{
+    $intArr = [];
+    foreach ($arr as $item) {
+        if (!is_numeric($item)) {
+            throw new Error("Type just numbers");
+        }
+        array_push($intArr, intval($item)) ;
+    }
+    return $intArr;
 }
