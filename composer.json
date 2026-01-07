@@ -1,0 +1,15 @@
+{
+    "name": "natan/multiply-matrices",
+    "autoload": {
+        "psr-4": {
+            "Natan\\MultiplyMatrices\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Natan Costa",
+            "email": "natanscosta7@gmail.com"
+        }
+    ],
+    "require": {}
+}
