@@ -12,5 +12,13 @@ Instructions to install them: [PHP](https://www.php.net/downloads.php), [Compose
 ## Run
 
 ```bash
+git clone https://github.com/NatanTheMan/multiply-matrices.git
+```
+
+```bash
+cd multiply-matrices
+```
+
+```bash
 composer run start
 ```
