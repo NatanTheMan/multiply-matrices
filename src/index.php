@@ -34,7 +34,14 @@ function readMatrix(string $placeHolder): Matrix
 
 function printMatrix(Matrix $matrix): void
 {
-    var_dump($matrix->toArray());
+    $times = count($matrix->toArray()[0]) * 2 + 1;
+
+    echo "--" . str_repeat(" ", $times) . "--", PHP_EOL;
+    foreach ($matrix->toArray() as $line) {
+        $x = "| " . implode(" ", $line) . " |";
+        echo $x, PHP_EOL;
+    }
+    echo "--" . str_repeat(" ", $times) . "--", PHP_EOL;
 }
 
 function multiplyMatrices(Matrix $matrixA, Matrix $matrixB): Matrix
