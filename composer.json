@@ -15,6 +15,6 @@
     "markbaker/matrix": "^3.0"
   },
   "scripts": {
-    "run": "php src/index.php"
+    "start": "php src/index.php"
   }
 }
