@@ -9,7 +9,8 @@ main();
 function main(): void
 {
     try {
-        echo "Type two matrices(A & B) to multiply them", PHP_EOL;
+        echo "###### Matrix Multiplyer ######",PHP_EOL,PHP_EOL;
+        echo "Type two matrices(A & B) to multiply them", PHP_EOL,PHP_EOL;
         printMatrix(multiplyMatrices(readMatrix("A"), readMatrix("B")));
     } catch (Error $e) {
         echo $e->getMessage(), PHP_EOL;
@@ -24,11 +25,15 @@ function readMatrix(string $placeHolder): Matrix
     echo "Type the number of rows: ";
     $row =  validate(readline());
 
+    echo PHP_EOL;
+
     $grid = [];
     for ($i = 1; $i <= $row; $i++) {
         $line = validateArray(array_slice(explode(" ", readline("Type line $i: ")), 0, $column));
         array_push($grid, $line);
     }
+
+    echo PHP_EOL;
     return new Matrix($grid);
 }
 
