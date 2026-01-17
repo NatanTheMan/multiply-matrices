@@ -20,5 +20,9 @@ cd multiply-matrices
 ```
 
 ```bash
+composer install
+```
+
+```bash
 composer run start
 ```
